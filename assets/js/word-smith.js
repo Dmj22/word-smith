@@ -38,3 +38,41 @@ function getChoices() {
    getChoices()
    
  
+    // generate a password
+   
+    function generatePassword() {
+      var password = ""
+      var choicesArr = []
+      if (userChoices.special) {
+     
+          choicesArr= [...choicesArr, ...special]
+      }
+ 
+     if (userChoices.lowerCase) {
+       choicesArr= [...choicesArr, ...lower]
+      }
+   
+     if (userChoices.numeric) {
+      choicesArr= [...choicesArr, ...numeric]
+    }
+   
+     if (userChoices.upperCase) {
+      choicesArr= [...choicesArr, ...upper]
+      }
+     
+     for (var i=0; i<userChoices.length; i++) {
+       password += getCharacter(choicesArr[Math.floor(Math.random() * choicesArr.length)])
+     }
+     return password
+  }
+   
+    function getCharacter(arr) {
+     
+     
+      var randIndex = Math.floor(Math.random() * arr.length);
+      var character = arr[randIndex]
+      return character
+     
+    }
+   
+ 
